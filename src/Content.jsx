@@ -1,10 +1,10 @@
-// import { AlbumsIndex } from "./AlbumsIndex";
+import { AlbumsIndex } from "./AlbumsIndex";
 import { LogoutLink } from "./LogoutLink";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 export function Content() {
-  const [album, setAlbums] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   const handleIndexAlbums = () => {
     console.log("handleIndexAlbums");
@@ -17,7 +17,7 @@ export function Content() {
   useEffect(handleIndexAlbums, []);
   return (
     <main>
-      {/* <AlbumsIndex /> */}
+      <AlbumsIndex albums={albums} />
       <LogoutLink />
     </main>
   );

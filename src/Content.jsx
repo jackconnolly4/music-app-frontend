@@ -1,10 +1,13 @@
 import { AlbumsIndex } from "./AlbumsIndex";
+import { ArtistsIndex } from "./ArtistsIndex";
 import { LogoutLink } from "./LogoutLink";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 export function Content() {
   const [albums, setAlbums] = useState([]);
+  const [artists, setArtists] = useState([]);
 
   const handleIndexAlbums = () => {
     console.log("handleIndexAlbums");
@@ -14,10 +17,23 @@ export function Content() {
     });
   };
 
+  const handleIndexArtists = () => {
+    console.log("handleIndexArtists");
+    axios.get("http://localhost:3000/artists.json").then((response) => {
+      console.log(response.data);
+      setArtists(response.data);
+    });
+  };
+
   useEffect(handleIndexAlbums, []);
+  useEffect(handleIndexArtists, []);
   return (
     <main>
-      <AlbumsIndex albums={albums} />
+      <Routes>
+        <Route path="/albums" element={<AlbumsIndex albums={albums} />} />
+        <Route path="/artists" element={<ArtistsIndex artists={artists} />} />
+      </Routes>
+
       <LogoutLink />
     </main>
   );

@@ -2,6 +2,7 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { useState } from "react";
 import { Modal } from "./Modal";
+import { Link } from "react-router-dom";
 
 export function Header() {
   //Signup components
@@ -37,7 +38,7 @@ export function Header() {
         <Login />
       </Modal>
       <nav>
-        <a href="#">Home</a> |{" "}
+        <a href="#">Home</a> | <Link to="/albums">All Albums</Link> | <Link to="/artists">All Artists</Link> |{" "}
         {localStorage.jwt === undefined ? (
           <>
             <a className="nav-link" onClick={handleSignupShow}>

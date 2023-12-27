@@ -38,13 +38,19 @@ export function Header() {
       </Modal>
       <nav>
         <a href="#">Home</a> |{" "}
-        <a className="nav-link" onClick={handleSignupShow}>
-          Signup
-        </a>{" "}
-        |{" "}
-        <a className="nav-link" onClick={handleLoginShow}>
-          Login
-        </a>
+        {localStorage.jwt === undefined ? (
+          <>
+            <a className="nav-link" onClick={handleSignupShow}>
+              Signup
+            </a>{" "}
+            |{" "}
+            <a className="nav-link" onClick={handleLoginShow}>
+              Login
+            </a>
+          </>
+        ) : (
+          <a> Logout </a>
+        )}
       </nav>
     </header>
   );

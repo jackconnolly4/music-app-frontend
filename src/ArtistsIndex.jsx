@@ -4,10 +4,10 @@ export function ArtistsIndex(props) {
       <h1>All Artists</h1>
       {props.artists.map((artist) => (
         <div key={artist.id}>
-          <h2>{artist.title}</h2>
+          <h2>{artist.name}</h2>
           <img src={artist.image_url} />
-          <h3>{artist.bio}</h3>
           <h3>{artist.genre}</h3>
+          <p>{artist.bio}</p>
         </div>
       ))}
     </div>

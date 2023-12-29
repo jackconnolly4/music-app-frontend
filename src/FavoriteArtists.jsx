@@ -6,7 +6,7 @@ export function FavoriteArtists(props) {
         <div key={favorite.id}>
           <h2>{favorite.artist.name}</h2>
           <img src={favorite.artist.image_url} />
-          <h3>{favorite.artist.genre}</h3>
+          <h4>{favorite.artist.genre}</h4>
         </div>
       ))}
     </div>

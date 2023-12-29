@@ -6,8 +6,9 @@ export function AlbumsIndex(props) {
         <div key={album.id}>
           <h2>{album.title}</h2>
           <img src={album.image_url} />
-          <h3>{album.year}</h3>
-          <h3>{album.genre}</h3>
+          <h4>Genre: {album.genre}</h4>
+          <p>{album.description}</p>
+          <h4> Year released: {album.year}</h4>
         </div>
       ))}
     </div>

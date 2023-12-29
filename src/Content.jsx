@@ -4,6 +4,7 @@ import { LogoutLink } from "./LogoutLink";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { YourCollection } from "./YourCollection";
 
 export function Content() {
   const [albums, setAlbums] = useState([]);
@@ -32,9 +33,10 @@ export function Content() {
       <Routes>
         <Route path="/albums" element={<AlbumsIndex albums={albums} />} />
         <Route path="/artists" element={<ArtistsIndex artists={artists} />} />
+        <Route path="/collection" element={<YourCollection />} />
+        <Route path="/logout" element={<LogoutLink />} />
       </Routes>
-
-      <LogoutLink />
+      <h1>Welcome to the Music Box</h1>
     </main>
   );
 }

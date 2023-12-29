@@ -38,7 +38,7 @@ export function Header() {
         <Login />
       </Modal>
       <nav>
-        <a href="#">Home</a> | <Link to="/albums">All Albums</Link> | <Link to="/artists">All Artists</Link> |{" "}
+        <a href="/">Home</a> | <Link to="/albums">All Albums</Link> | <Link to="/artists">All Artists</Link> |{" "}
         {localStorage.jwt === undefined ? (
           <>
             <a className="nav-link" onClick={handleSignupShow}>
@@ -50,7 +50,17 @@ export function Header() {
             </a>
           </>
         ) : (
-          <a> Logout </a>
+          <>
+            <Link className="nav-link" to="/collection">
+              {" "}
+              Your Collection{" "}
+            </Link>
+            |
+            <Link className="nav-link" to="/logout">
+              {" "}
+              Logout{" "}
+            </Link>
+          </>
         )}
       </nav>
     </header>
